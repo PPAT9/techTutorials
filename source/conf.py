@@ -38,7 +38,7 @@ release = 'Apr-202'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    'sphinx.ext.intersphinx',
+    'sphinx.ext.intersphinx',    
     'sphinx.ext.autodoc','rst2pdf.pdfbuilder', 'rst2pdf.pdfbuilder']
 pdf_documents = [('index', u'rst2pdf', u'Sample rst2pdf doc', u'prashant'),]
 #to create pdf run sphinx-build -b pdf ./source build/pdf
