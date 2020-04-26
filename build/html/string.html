@@ -43,7 +43,8 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="variables and types" href="variables and types.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -87,10 +88,25 @@
               
             
             
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="what is python really.html">What is Python really?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="How python code is executed.html">How python code is executed</a></li>
 <li class="toctree-l1"><a class="reference internal" href="variables and types.html">variables and types</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Strings</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#string-constants">String constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#multiline-string">Multiline string</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#string-concatenation">String Concatenation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#strings-are-immutable">Strings are Immutable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#string-indexing-and-splicing">String Indexing and Splicing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#string-interpolation">String Interpolation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#python-strings-useful-functions">Python Strings - Useful Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#capitalize">capitalize()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#count-str-beg-0-end-len-string">count(str, beg=0, end=len(string))</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#find-str-beg-0-end-len-string">find(str, beg=0, end=len(string))</a></li>
+</ul>
+</li>
 </ul>
 
             
@@ -159,45 +175,45 @@
 <h1>Strings<a class="headerlink" href="#strings" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="string-constants">
 <h2>String constants<a class="headerlink" href="#string-constants" title="Permalink to this headline">¶</a></h2>
-<p>are delimited with “ ” (double quotes) or ‘ ‘ (single quotes)</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&gt;&gt; h = “Hello World”
-&gt;&gt; h = ‘Hello World’
+<p>are delimited with “” (double quotes) or ‘ ‘ (single quotes)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">h</span> <span class="o">=</span> <span class="s2">&quot;Hello World&quot;</span>
+<span class="o">&gt;&gt;</span> <span class="n">h</span> <span class="o">=</span> <span class="s1">&#39;Hello World&#39;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="multiline-string">
 <h2>Multiline string<a class="headerlink" href="#multiline-string" title="Permalink to this headline">¶</a></h2>
 <p>String constant can contain new line by using double quotes or single quotes:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&gt;&gt; h = “”” Hi
-    How are you”””
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">h</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Hi</span>
+<span class="s2">    How are you&quot;&quot;&quot;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="string-concatenation">
 <h2>String Concatenation<a class="headerlink" href="#string-concatenation" title="Permalink to this headline">¶</a></h2>
 <p>Use + sign to concate 2 strings:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&gt;&gt; s = “hi”
-&gt;&gt; t =  “How are you”
-&gt;&gt; print(s + t)
-Hi How are you
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;hi&quot;</span>
+<span class="o">&gt;&gt;</span> <span class="n">t</span> <span class="o">=</span>  <span class="s2">&quot;How are you&quot;</span>
+<span class="o">&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">s</span> <span class="o">+</span> <span class="n">t</span><span class="p">)</span>
+<span class="n">Hi</span> <span class="n">How</span> <span class="n">are</span> <span class="n">you</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="strings-are-immutable">
 <h2>Strings are Immutable<a class="headerlink" href="#strings-are-immutable" title="Permalink to this headline">¶</a></h2>
 <p>String cannot be modified like in programming language (like c):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&gt;&gt; h = “Hello world”
-&gt;&gt; h[2] = ‘g’
-TypeError: ‘str’ object does not support item assignment.
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">h</span> <span class="o">=</span> <span class="s2">&quot;Hello world&quot;</span>
+<span class="o">&gt;&gt;</span> <span class="n">h</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;g&#39;</span>
+<span class="ne">TypeError</span><span class="p">:</span> <span class="s1">&#39;str&#39;</span> <span class="nb">object</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">support</span> <span class="n">item</span> <span class="n">assignment</span><span class="o">.</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="string-indexing-and-splicing">
 <h2>String Indexing and Splicing<a class="headerlink" href="#string-indexing-and-splicing" title="Permalink to this headline">¶</a></h2>
 <p>String can be indexed like in C:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&gt;&gt; h = “hello world”
-&gt;&gt; h[0]     # note index starts from zero
-H
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">h</span> <span class="o">=</span> <span class="s2">&quot;hello world&quot;</span>
+<span class="o">&gt;&gt;</span> <span class="n">h</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>     <span class="c1"># note index starts from zero</span>
+<span class="n">H</span>
 </pre></div>
 </div>
 <p>String can be sliced:</p>
@@ -213,10 +229,10 @@ H
 <div class="section" id="string-interpolation">
 <h2>String Interpolation<a class="headerlink" href="#string-interpolation" title="Permalink to this headline">¶</a></h2>
 <p>The mod(%) operator in string is used for formatting or to insert variable in a string:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&gt;&gt; print “There are %d orange in the basket” % 32
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&gt;&gt; print &quot;There are %d orange in the basket&quot; % 32
 There are 32 orange in the basket
 
-&gt;&gt; print “There are %d %s and %d %s in the basket” % (32, ‘orange’, 12, ‘apple’)
+&gt;&gt; print &quot;There are %d %s and %d %s in the basket&quot; % (32, &#39;orange&#39;, 12, ‘apple’)
 There are 32 orange and 12 apple in the basket
 </pre></div>
 </div>
@@ -224,7 +240,7 @@ There are 32 orange and 12 apple in the basket
 </div>
 <div class="section" id="python-strings-useful-functions">
 <h1>Python Strings - Useful Functions<a class="headerlink" href="#python-strings-useful-functions" title="Permalink to this headline">¶</a></h1>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>S = “Jack and Jill”
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">S</span> <span class="o">=</span> <span class="s2">&quot;Jack and Jill&quot;</span>
 </pre></div>
 </div>
 <div class="section" id="capitalize">
@@ -238,8 +254,8 @@ There are 32 orange and 12 apple in the basket
 <div class="section" id="count-str-beg-0-end-len-string">
 <h2>count(str, beg=0, end=len(string))<a class="headerlink" href="#count-str-beg-0-end-len-string" title="Permalink to this headline">¶</a></h2>
 <p>Count how many times str occurs in a string or in a substring (if beg and end is given):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&gt;&gt; s.count(‘J’)
-2
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">s</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;J&#39;</span><span class="p">)</span>
+<span class="mi">2</span>
 </pre></div>
 </div>
 </div>
@@ -247,10 +263,10 @@ There are 32 orange and 12 apple in the basket
 <h2>find(str, beg=0, end=len(string))<a class="headerlink" href="#find-str-beg-0-end-len-string" title="Permalink to this headline">¶</a></h2>
 <p>Determine if str occurs in string or in a substring of string
 if starting index <em>beg</em> and ending index <em>end</em> are given return <strong>index</strong> if found else <strong>-1</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&gt;&gt; s.find(‘and’)
-&gt;&gt; 5
-&gt;&gt; s.find(‘j’)
-&gt;&gt; -1
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">s</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;and&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="mi">5</span>
+<span class="o">&gt;&gt;</span> <span class="n">s</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;j&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="o">-</span><span class="mi">1</span>
 </pre></div>
 </div>
 </div>
@@ -261,6 +277,13 @@ if starting index <em>beg</em> and ending index <em>end</em> are given return <s
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="variables and types.html" class="btn btn-neutral float-left" title="variables and types" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
