@@ -7,12 +7,6 @@ variables and types
 * No need to declare variable before using them or declare their type
 * **Every variable** in Python is an **Object**
 
-.. toctree::
-   :maxdepth: 10
-
-   string
-
-   
 * Numbers
     * Python Support 2 type of numbers Integer and Floating point number
     * To define an Integer use x = 7
