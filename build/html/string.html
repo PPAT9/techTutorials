@@ -97,14 +97,22 @@
 <li class="toctree-l2"><a class="reference internal" href="#multiline-string">Multiline string</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#string-concatenation">String Concatenation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#strings-are-immutable">Strings are Immutable</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#string-indexing-and-splicing">String Indexing and Splicing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#string-indexing-and-slicing">String Indexing and Slicing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#string-interpolation">String Interpolation</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#python-strings-useful-functions">Python Strings - Useful Functions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#capitalize">capitalize()</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#count-str-beg-0-end-len-string">count(str, beg=0, end=len(string))</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#find-str-beg-0-end-len-string">find(str, beg=0, end=len(string))</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#strings-useful-functions">Strings - Useful Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#capitalize">capitalize</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#count">count</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#encode">encode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#find">find</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#len">len</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#strip">strip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#split">split</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#join">join</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#replace">replace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#startswith">startswith</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#splitlines">splitlines</a></li>
 </ul>
 </li>
 </ul>
@@ -208,8 +216,8 @@
 </pre></div>
 </div>
 </div>
-<div class="section" id="string-indexing-and-splicing">
-<h2>String Indexing and Splicing<a class="headerlink" href="#string-indexing-and-splicing" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="string-indexing-and-slicing">
+<h2>String Indexing and Slicing<a class="headerlink" href="#string-indexing-and-slicing" title="Permalink to this headline">¶</a></h2>
 <p>String can be indexed like in C:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">h</span> <span class="o">=</span> <span class="s2">&quot;hello world&quot;</span>
 <span class="o">&gt;&gt;</span> <span class="n">h</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>     <span class="c1"># note index starts from zero</span>
@@ -238,35 +246,144 @@ There are 32 orange and 12 apple in the basket
 </div>
 </div>
 </div>
-<div class="section" id="python-strings-useful-functions">
-<h1>Python Strings - Useful Functions<a class="headerlink" href="#python-strings-useful-functions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="strings-useful-functions">
+<h1>Strings - Useful Functions<a class="headerlink" href="#strings-useful-functions" title="Permalink to this headline">¶</a></h1>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">S</span> <span class="o">=</span> <span class="s2">&quot;Jack and Jill&quot;</span>
 </pre></div>
 </div>
 <div class="section" id="capitalize">
-<h2>capitalize()<a class="headerlink" href="#capitalize" title="Permalink to this headline">¶</a></h2>
-<p>Capitalizes first letter of the string:</p>
+<h2>capitalize<a class="headerlink" href="#capitalize" title="Permalink to this headline">¶</a></h2>
+<p>Capitalizes first letter of the string</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">s</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
-<span class="o">&gt;&gt;</span> <span class="n">Jack</span> <span class="n">And</span> <span class="n">Jill</span>
+<span class="n">Jack</span> <span class="n">And</span> <span class="n">Jill</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="count-str-beg-0-end-len-string">
-<h2>count(str, beg=0, end=len(string))<a class="headerlink" href="#count-str-beg-0-end-len-string" title="Permalink to this headline">¶</a></h2>
-<p>Count how many times str occurs in a string or in a substring (if beg and end is given):</p>
+<div class="section" id="count">
+<h2>count<a class="headerlink" href="#count" title="Permalink to this headline">¶</a></h2>
+<p>count(str, start=0, end=len(string))
+Count how many times str occurs in a string or in a substring (if start and end is given):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">s</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;J&#39;</span><span class="p">)</span>
 <span class="mi">2</span>
+<span class="o">&gt;&gt;</span> <span class="n">s</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;J&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="mi">1</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="find-str-beg-0-end-len-string">
-<h2>find(str, beg=0, end=len(string))<a class="headerlink" href="#find-str-beg-0-end-len-string" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="encode">
+<h2>encode<a class="headerlink" href="#encode" title="Permalink to this headline">¶</a></h2>
+<p>The encode() method encodes the string, using the specified encoding.
+If no encoding is specified, UTF-8 will be used.
+string.encode(encoding=encoding, errors=errors)
+encoding        Optional. A String specifying the encoding to use. Default is UTF-8
+errors      Optional. A String specifying the error method. Legal values are:
+* ‘backslashreplace’    - uses a backslash instead of the character that could not be encoded
+* ‘ignore’      - ignores the characters that cannot be encoded
+* ‘namereplace’ - replaces the character with a text explaining the character
+* ‘strict’      - Default, raises an error on failure
+* ‘replace’     - replaces the character with a questionmark
+* ‘xmlcharrefreplace’   - replaces the character with an xml character</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="n">txt</span> <span class="o">=</span> <span class="s2">&quot;My name is Ståle&quot;</span>
+
+<span class="o">&gt;&gt;</span><span class="nb">print</span><span class="p">(</span><span class="n">txt</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;ascii&quot;</span><span class="p">,</span><span class="n">errors</span><span class="o">=</span><span class="s2">&quot;backslashreplace&quot;</span><span class="p">))</span>
+<span class="sa">b</span><span class="s1">&#39;My name is St</span><span class="se">\\</span><span class="s1">xe5le&#39;</span>
+<span class="o">&gt;&gt;</span><span class="nb">print</span><span class="p">(</span><span class="n">txt</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;ascii&quot;</span><span class="p">,</span><span class="n">errors</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">))</span>
+<span class="sa">b</span><span class="s1">&#39;My name is Stle&#39;</span>
+<span class="o">&gt;&gt;</span><span class="nb">print</span><span class="p">(</span><span class="n">txt</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;ascii&quot;</span><span class="p">,</span><span class="n">errors</span><span class="o">=</span><span class="s2">&quot;namereplace&quot;</span><span class="p">))</span>
+<span class="sa">b</span><span class="s1">&#39;My name is St</span><span class="se">\\</span><span class="s1">N{LATIN SMALL LETTER A WITH RING ABOVE}le&#39;</span>
+<span class="o">&gt;&gt;</span><span class="nb">print</span><span class="p">(</span><span class="n">txt</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;ascii&quot;</span><span class="p">,</span><span class="n">errors</span><span class="o">=</span><span class="s2">&quot;replace&quot;</span><span class="p">))</span>
+<span class="sa">b</span><span class="s1">&#39;My name is St?le&#39;</span>
+<span class="o">&gt;&gt;</span><span class="nb">print</span><span class="p">(</span><span class="n">txt</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;ascii&quot;</span><span class="p">,</span><span class="n">errors</span><span class="o">=</span><span class="s2">&quot;xmlcharrefreplace&quot;</span><span class="p">))</span>
+<span class="sa">b</span><span class="s1">&#39;My name is St&amp;#229;le&#39;</span>
+<span class="o">&gt;&gt;</span><span class="nb">print</span><span class="p">(</span><span class="n">txt</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;ascii&quot;</span><span class="p">,</span><span class="n">errors</span><span class="o">=</span><span class="s2">&quot;strict&quot;</span><span class="p">))</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+<span class="n">File</span> <span class="s2">&quot;demo_ref_string_encode2,py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">8</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">UnicodeEncodeError</span><span class="p">:</span> <span class="s1">&#39;ascii&#39;</span> <span class="n">codec</span> <span class="n">can</span><span class="s1">&#39;t encode character &#39;</span>\<span class="n">xe5</span>\ <span class="ow">in</span> <span class="n">position</span> <span class="mi">13</span><span class="p">:</span> <span class="n">ordinal</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">128</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="find">
+<h2>find<a class="headerlink" href="#find" title="Permalink to this headline">¶</a></h2>
+<p>find(str, beg=0, end=len(string))</p>
 <p>Determine if str occurs in string or in a substring of string
 if starting index <em>beg</em> and ending index <em>end</em> are given return <strong>index</strong> if found else <strong>-1</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">s</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;and&#39;</span><span class="p">)</span>
-<span class="o">&gt;&gt;</span> <span class="mi">5</span>
-<span class="o">&gt;&gt;</span> <span class="n">s</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;j&#39;</span><span class="p">)</span>
-<span class="o">&gt;&gt;</span> <span class="o">-</span><span class="mi">1</span>
+<span class="mi">5</span>
+<span class="o">&gt;&gt;</span> <span class="n">s</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;j&#39;</span><span class="p">)</span>  <span class="c1"># small j does not exist to will return -1</span>
+<span class="o">-</span><span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="len">
+<h2>len<a class="headerlink" href="#len" title="Permalink to this headline">¶</a></h2>
+<p>Return the length of the string</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">s</span><span class="o">.</span><span class="n">len</span><span class="p">()</span>
+<span class="o">&gt;&gt;</span> <span class="mi">13</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="strip">
+<h2>strip<a class="headerlink" href="#strip" title="Permalink to this headline">¶</a></h2>
+<p>Remove all trailing and leading white space</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">line</span> <span class="o">=</span>  <span class="s2">&quot; hi I am with space &quot;</span>
+<span class="o">&gt;&gt;</span> <span class="n">line</span><span class="o">.</span><span class="n">stripp</span><span class="p">()</span>
+<span class="o">&gt;&gt;</span> <span class="n">hi</span> <span class="n">I</span> <span class="n">am</span> <span class="k">with</span> <span class="n">space</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="split">
+<h2>split<a class="headerlink" href="#split" title="Permalink to this headline">¶</a></h2>
+<p>Splits string according to delimiter str (space if not provided)
+and return list of substrings: split into at most num substrings.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&gt;&gt; s.split()
+&gt;&gt; [‘Jack’, ‘and’, ‘Jill’]
+
+&gt;&gt;a = &quot;Tim|John|Jake&quot;
+&gt;&gt;a.split(&quot;,&quot;)
+&gt;&gt;[&quot;Tim&quot;, &quot;John&quot;, &quot;Jake&quot;]
+</pre></div>
+</div>
+</div>
+<div class="section" id="join">
+<h2>join<a class="headerlink" href="#join" title="Permalink to this headline">¶</a></h2>
+<p>Merges (concatenates) the string representations of elements in sequence.
+Take input as list or tuple or set</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&gt;&gt; &quot; &quot;.join([‘Jack’, ‘and’, ‘Jill’])
+&gt;&gt; Jack and Jill
+</pre></div>
+</div>
+</div>
+<div class="section" id="replace">
+<h2>replace<a class="headerlink" href="#replace" title="Permalink to this headline">¶</a></h2>
+<p>Replaces all occurrences of old in string with new or at most max occurrence if max given</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&gt;&gt; value = “aabc”
+&gt;&gt; print(value.replace(‘bc’, ‘yz’))
+&gt;&gt; aayz
+&gt;&gt; print(value.replace(‘a’, ‘x’, 1))  # replace only first occurance
+&gt;&gt; xabc
+</pre></div>
+</div>
+</div>
+<div class="section" id="startswith">
+<h2>startswith<a class="headerlink" href="#startswith" title="Permalink to this headline">¶</a></h2>
+<p>string.startswith(value, start, end)
+The startswith() method returns <em>True</em>
+if the string starts with the specified value, otherwise <em>False</em>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="n">s</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;Jack&quot;</span><span class="p">)</span>
+<span class="kc">True</span>
+<span class="o">&gt;&gt;</span><span class="n">s</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;and&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="splitlines">
+<h2>splitlines<a class="headerlink" href="#splitlines" title="Permalink to this headline">¶</a></h2>
+<p>Split a string into a list where each line is a list item
+The splitting is done at line breaks.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="n">txt</span> <span class="o">=</span> <span class="s2">&quot;line one </span><span class="se">\n</span><span class="s2">second line </span><span class="se">\n</span><span class="s2"> thrid line&quot;</span>
+<span class="o">&gt;&gt;</span><span class="n">txt</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
+<span class="n">line</span> <span class="n">one</span>
+<span class="n">second</span> <span class="n">line</span>
+<span class="n">third</span> <span class="n">line</span>
 </pre></div>
 </div>
 </div>
