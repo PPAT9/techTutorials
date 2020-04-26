@@ -13,6 +13,7 @@ Welcome to tectTutorial's documentation!
    How python code is executed
    variables and types
    string
+   list
 
 
    
