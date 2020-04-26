@@ -12,7 +12,7 @@ Welcome to tectTutorial's documentation!
    what is python really
    How python code is executed
    variables and types
-      string
+   string
 
    
 
